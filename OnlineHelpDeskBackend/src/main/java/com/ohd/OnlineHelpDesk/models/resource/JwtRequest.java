@@ -1,4 +1,4 @@
-package com.ohd.OnlineHelpDesk.models;
+package com.ohd.OnlineHelpDesk.models.resource;
 
 import lombok.*;
 
