@@ -38,15 +38,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 username = this.jwtUtil.extractUsername(jwtToken);
             }catch(Exception e){
                 e.printStackTrace();
+                System.out.println("Jwt token has expired");
             }
-            UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(username);
+//            UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(username);
             //security
-            if(username!=null && SecurityContextHolder.getContext().getAuthentication()==null){//kind of null check
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+            if(username!=null && SecurityContextHolder.getContext().getAuthentication()==null){
+                final UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(username);
+                if(this.jwtUtil.validateToken(jwtToken, userDetails)){
+
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                }
+
             }else{
-                System.out.println("Token is not validated..");
+                System.out.println("Token is not valid");
             }
 
         }

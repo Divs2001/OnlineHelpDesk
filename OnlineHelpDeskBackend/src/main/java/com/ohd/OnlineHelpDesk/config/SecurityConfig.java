@@ -4,8 +4,10 @@ import com.ohd.OnlineHelpDesk.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,17 +18,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true) //required when
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
     @Autowired
     private JwtAuthenticationFilter jwtFilter;
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
 
     //configuring security things
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception { // tells which authentication we want to use
-        auth.userDetailsService(customUserDetailsService);
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception { // tells which role to access which api
+        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -37,19 +47,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/generateToken").permitAll()
+                .antMatchers("/generate-token","/users/addUser").permitAll()
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
 
     @Bean
+    @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
