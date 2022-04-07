@@ -1,6 +1,7 @@
 package com.ohd.OnlineHelpDesk.controller;
 
 import com.ohd.OnlineHelpDesk.helper.JwtUtil;
+import com.ohd.OnlineHelpDesk.models.entity.Users;
 import com.ohd.OnlineHelpDesk.models.resource.JwtRequest;
 import com.ohd.OnlineHelpDesk.models.resource.JwtResponse;
 import com.ohd.OnlineHelpDesk.services.CustomUserDetailsService;
@@ -12,10 +13,9 @@ import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin("*")
@@ -50,5 +50,10 @@ public class JwtController {
         String token = this.jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    @GetMapping("/current-user")
+    public Users getCurrentUser(Principal principal){
+        return (Users)this.customUserDetailsService.loadUserByUsername(principal.getName());
     }
 }
