@@ -1,0 +1,80 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                <div class="container text-center">
+                    <img src="../../../assets/pictures/logo.jpg" alt="Logo" style="width: 200px;">
+                </div>
+                <h1 class="text-center">Register Here!</h1>
+
+                <!-- {{user | json}} -->
+                <form (ngSubmit)="formSubmit()">
+                    <!-- Username field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input required [(ngModel)]="user.username" name="username" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                        <mat-hint>Username must be unique !!</mat-hint>
+                    </mat-form-field>
+
+                    <!-- Password field -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input required [(ngModel)]="user.password" name="password" type="password" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+
+                    <!-- Firstname -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>First name</mat-label>
+                        <input required [(ngModel)]="user.firstName" name="firstName" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+
+                    <!-- Lastname -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Last name</mat-label>
+                        <input required [(ngModel)]="user.lastName" name="lastName" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+
+                    <!-- Email -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input required [(ngModel)]="user.email" name="email" type="email" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+
+                    <!-- Phone no -->
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone number</mat-label>
+                        <input required [(ngModel)]="user.phone" name="phone" type="number" matInput
+                            placeholder="Enter here...">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="reset" class="btn-reset" mat-raised-button>Reset</button>
+                        <button type="submit" class="btn-submit" mat-raised-button>Submit</button>
+                    </div>
+
+                </form>
+
+
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

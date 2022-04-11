@@ -2,6 +2,7 @@ package com.ohd.OnlineHelpDesk.controller;
 
 import com.ohd.OnlineHelpDesk.models.entity.Role;
 import com.ohd.OnlineHelpDesk.models.entity.Users;
+import com.ohd.OnlineHelpDesk.models.resource.ForgotPasswordResource;
 import com.ohd.OnlineHelpDesk.models.resource.UserResource;
 import com.ohd.OnlineHelpDesk.repo.RoleRepository;
 import com.ohd.OnlineHelpDesk.services.UsersService;
@@ -31,5 +32,13 @@ public class UserController {
     public Users getUser(@RequestParam Long id){
         return this.usersService.getUser(id);
     }
+
+    @PostMapping(value="/forgot-password")
+    public String forgotPassword(@RequestBody ForgotPasswordResource email){
+        System.out.println("Entered in controller");
+        return this.usersService.forgotPassword(email.getEmail());
+    }
+
+
 
 }

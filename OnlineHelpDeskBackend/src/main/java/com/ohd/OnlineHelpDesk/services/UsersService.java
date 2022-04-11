@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 @Service
 public class UsersService {
@@ -45,4 +48,43 @@ public class UsersService {
         return this.usersRepository.findById(id).get();
     }
 
+    public String forgotPassword(String email) {
+        Users users = this.usersRepository.findByEmail(email);
+        if(users!=null){
+            System.out.println(users.getName());
+            Properties properties = new Properties();
+
+            properties.put("mail.smtp.auth","true");
+            properties.put("mail.smtp.starttls.enable","true");
+            properties.put("mail.smtp.host","smtp.gmail.com");
+            properties.put("mail.smtp.port","587");
+
+            String to = email;//change accordingly
+            String from = "onlinehelpdeskskit@gmail.com";//change accordingly
+            String password = "Onlinehelpdesk";
+
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(from, password);
+                }
+            });
+
+            //compose the message
+            try{
+                MimeMessage message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(from));
+                message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+                message.setSubject("Reset password for Online Help Desk");
+                message.setText("Hello, this is example of sending email  ");
+
+                // Send message
+                Transport.send(message);
+                System.out.println("message sent successfully....");
+
+            }catch (MessagingException mex) {mex.printStackTrace();}
+            return "Email has been sent...";
+        }
+        return "Enter valid email or signup.";
+    }
 }

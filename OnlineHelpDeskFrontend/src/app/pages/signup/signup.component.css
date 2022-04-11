@@ -1,0 +1,15 @@
+.full-width{
+    width:100%;
+}
+.btn-reset{
+    background-color: #5C5C5C;
+    color:white;
+    margin: 2px;
+    
+}
+.btn-submit{
+    background-color: #E79A69;
+    color: white;
+    margin: 2px;
+    
+}

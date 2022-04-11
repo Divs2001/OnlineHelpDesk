@@ -1,0 +1,53 @@
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="color: rgba(0,0,0,.54);">Questions of {{title}} Quiz</h1>
+
+            <div class="container text-center">
+                <button mat-raised-button
+                [routerLink]="'/admin-dashboard/add-question/'+quizId+'/'+title"
+                >Add Question</button>
+            </div>
+
+            <mat-card *ngFor="let ques of questions, let i = index" class="mt20">
+                <mat-card-content>
+                    <p>
+                        <b> Q.{{i+1}} </b><span [innerHTML]="ques.content"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>1) {{ques.option1}} </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>2) {{ques.option2}} </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>3) {{ques.option1}} </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>4) {{ques.option2}} </p>
+                            </div>
+                        </div>
+                        <mat-divider class="mb20"></mat-divider>
+                        <p class="mt20"><b> Correct Answer: </b>{{ques.answer}}</p>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-icon-button
+                    style="color: #FC5656;">
+                        <mat-icon>edit  </mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                            style="color: #FC5656;"
+                            (click)="deleteQuestion(ques.quesId)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

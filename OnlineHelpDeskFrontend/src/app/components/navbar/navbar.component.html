@@ -1,0 +1,38 @@
+<mat-toolbar class="toolbar-color">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon style="color: white;">menu</mat-icon>
+    </button>
+    <span style="color: white;"><a *ngIf="!isLoggedIn" routerLink="/" class="quizzo">TellMe</a>
+    <a *ngIf="isLoggedIn && user" routerLink="/admin-dashboard"class="quizzo">TellMe</a></span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+     mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+       Login
+        <!-- <mat-icon>login</mat-icon> -->
+    </a
+    >
+    <a *ngIf="!isLoggedIn" 
+    [routerLink]="'/signup'"
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        Register
+         <!-- <mat-icon>login</mat-icon> -->
+     </a>
+
+     <a 
+     *ngIf="isLoggedIn" 
+     routerLink="/admin-dashboard/profile"
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        {{user.username}}
+         <!-- <mat-icon>login</mat-icon> -->
+     </a>
+
+     <a (click)="logout()"
+     *ngIf="isLoggedIn && user" 
+     
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        Logout
+         <!-- <mat-icon>login</mat-icon> -->
+     </a>
+   
+</mat-toolbar>
