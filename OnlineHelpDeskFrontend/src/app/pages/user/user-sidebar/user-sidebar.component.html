@@ -4,13 +4,12 @@
         <button mat-list-item routerLink="/user-dashboard">
             <mat-icon mat-list-icon>home</mat-icon> Home
         </button>
-        <button mat-list-item routerLink="/user-dashboard/getQuizzes/0">
+        <!-- <button mat-list-item routerLink="/user-dashboard/getQuizzes/0">
             <mat-icon mat-list-icon>quiz</mat-icon> All Quizzes   
-        </button>
-        <button mat-list-item 
-        [routerLink]="'/user-dashboard/getQuizzes/'+c.catId" 
-        *ngFor="let c of categories">
-            <mat-icon mat-list-icon>quiz</mat-icon> {{c.title}}   
+        </button> -->
+        <button mat-list-item  
+        *ngFor="let r of roles">
+            <mat-icon class="icon-color"mat-list-icon>assignment</mat-icon> {{r.domain}}   
         </button>
         
     </mat-action-list>

@@ -15,12 +15,10 @@ export class SignupComponent implements OnInit {
     private snack: MatSnackBar, private router:Router) { }
 
   public user={
-    username:'',
-    password:'',
-    firstName:'',
-    lastName:'',
+    collegeId:'',
+    name:'',
     email:'',
-    phone:''
+    password:''
   }
 
   ngOnInit(): void {
@@ -28,23 +26,13 @@ export class SignupComponent implements OnInit {
 
   formSubmit(){
     console.log(this.user);
-    if(this.user.username==''|| this.user.username==null){
-      this.snack.open("Username is required!!",'',{
+    if(this.user.collegeId==''|| this.user.collegeId==null){
+      this.snack.open("College id is required!!",'',{
         duration:3000, horizontalPosition:'right'
       });
       return;
-    }else if(this.user.password==''|| this.user.password==null){
-      this.snack.open("Password is required!!",'',{
-        duration:3000, horizontalPosition:'right'
-      });
-      return;
-    }else if(this.user.firstName==''|| this.user.firstName==null){
-      this.snack.open("First name is required!!",'',{
-        duration:3000, horizontalPosition:'right'
-      });
-      return;
-    }else if(this.user.lastName==''|| this.user.lastName==null){
-      this.snack.open("Last name is required!!",'',{
+    }else if(this.user.name==''|| this.user.name==null){
+      this.snack.open("Name is required!!",'',{
         duration:3000, horizontalPosition:'right'
       });
       return;
@@ -53,12 +41,12 @@ export class SignupComponent implements OnInit {
         duration:3000, horizontalPosition:'right'
       });
       return;
-    }else if(this.user.phone==''|| this.user.phone==null){
-      this.snack.open("Phone number is required!!",'',{
+    }else if(this.user.password==''|| this.user.password==null){
+      this.snack.open("Password is required!!",'',{
         duration:3000, horizontalPosition:'right'
       });
       return;
-    } 
+    }
 
     this.userService.addUser(this.user).subscribe(
       (data)=>{

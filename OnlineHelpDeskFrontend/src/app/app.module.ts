@@ -25,18 +25,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import {MatListModule} from '@angular/material/list';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
-import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
-import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
-import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
-import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
-import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
-import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
-import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
-import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { UserHomeComponent } from './pages/user/user-home/user-home.component';
 
 
 @NgModule({
@@ -52,15 +45,9 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
     ProfileComponent,
     SidebarComponent,
     WelcomeComponent,
-    ViewCategoriesComponent,
-    AddCategoryComponent,
-    ViewQuizzesComponent,
-    AddQuizComponent,
-    UpdateQuizComponent,
-    ViewQuizQuestionsComponent,
-    AddQuestionComponent,
     UserSidebarComponent,
-    LoadQuizComponent,
+    UserHomeComponent,
+    
     
   ],
   imports: [

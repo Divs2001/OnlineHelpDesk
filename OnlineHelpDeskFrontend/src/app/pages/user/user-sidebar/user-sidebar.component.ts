@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CategoryService } from 'src/app/services/category/category.service';
+import { DomainsService } from 'src/app/services/domains/domains.service';
 
 @Component({
   selector: 'app-user-sidebar',
@@ -9,16 +9,18 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class UserSidebarComponent implements OnInit {
 
-  categories:any;
-  constructor(private cat: CategoryService, private snack:MatSnackBar) { }
+  roles:any=[];
+  constructor(private dom: DomainsService, private snack:MatSnackBar) { }
 
   ngOnInit(): void {
-    this.cat.categories().subscribe(
+    console.log("Hello");
+    this.dom.getRoles().subscribe(
       (data:any)=>{
-        this.categories = data;
+        console.log(data);
+        this.roles = data;
       },
       (error)=>{
-        this.snack.open("Error in loading categories from server", "",{
+        this.snack.open("Error in loading domains from server", "",{
           duration:3000
         })
       }

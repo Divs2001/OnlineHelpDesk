@@ -11,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
 
   loginData={
-    username:'',
+    email:'',
     password:''
   }
   constructor(private snack:MatSnackBar, private loginService:LoginService, private route: Router) { }
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
   formSubmit(){
 
-    if(this.loginData.username.trim()=='' || this.loginData.username==null){
+    if(this.loginData.email.trim()=='' || this.loginData.email==null){
 
       this.snack.open("Username is required !!", "", {
         duration: 3000
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
               this.loginService.loginStatusSubject.next(true);
               this.route.navigate(['admin-dashboard']);
 
-            }else if(this.loginService.getUserRole()=="NORMAL"){
+            }else if(this.loginService.getUserRole()=="STUDENT"){
               // window.location.href="/user-dashboard";
               this.loginService.loginStatusSubject.next(true);
               this.route.navigate(['user-dashboard']);

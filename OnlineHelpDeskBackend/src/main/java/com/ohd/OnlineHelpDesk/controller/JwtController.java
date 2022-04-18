@@ -32,9 +32,9 @@ public class JwtController {
 
     @PostMapping("/generate-token")
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception {
-        System.out.println(jwtRequest.getUsername()+" "+jwtRequest.getPassword());
+        System.out.println(jwtRequest.getEmail()+" "+jwtRequest.getPassword());
         try{
-            this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));
+            this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getEmail(), jwtRequest.getPassword()));
         }catch (UsernameNotFoundException e){
             e.printStackTrace();
             throw new Exception("Bad credentials");
@@ -46,7 +46,7 @@ public class JwtController {
             throw new Exception("Bad Credentials");
         }
 
-        UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(jwtRequest.getUsername());
+        UserDetails userDetails = this.customUserDetailsService.loadUserByUsername(jwtRequest.getEmail());
         String token = this.jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new JwtResponse(token));
