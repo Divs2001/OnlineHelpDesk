@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired

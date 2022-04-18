@@ -11,6 +11,6 @@ export class UserService {
   }
 
   public addUser(user:any){
-      return this.http.post(`${baseUrl}/users/saveUser`, user);
+      return this.http.post(`${baseUrl}/users/addUser`, user);
   }
 }
