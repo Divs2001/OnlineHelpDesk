@@ -10,6 +10,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDasboardComponent as UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
+import { UserQueryComponent } from './pages/user/user-query/user-query.component';
 import { AdminGuard } from './services/Admin Guard/admin.guard';
 import { NormalGuard } from './services/Normal Guard/normal.guard';
 
@@ -55,6 +56,14 @@ const routes: Routes = [
       {
         path:'',
         component:UserHomeComponent
+      },
+      {
+        path:'query/:roleId',
+        component:UserQueryComponent
+      },
+      {
+        path:"profile",
+        component:ProfileComponent
       },
     ]
   },

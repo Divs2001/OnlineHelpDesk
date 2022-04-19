@@ -5,15 +5,13 @@ import baseUrl from '../helper';
 @Injectable({
   providedIn: 'root'
 })
-export class DomainsService {
+export class QueryService {
 
   constructor(private http:HttpClient) { }
 
-  public getRoles(){
-    return this.http.get(`${baseUrl}/roles/getRoles`);
-  }
-
-  public getRole(roleId:any){
-    return this.http.get(`${baseUrl}/roles/getRole?roleId=`+roleId);
+  public addQuery(queryData:any){
+    console.log(queryData);
+    
+    return this.http.post(`${baseUrl}/query/addQuery`, queryData);
   }
 }

@@ -8,8 +8,9 @@
             <mat-icon mat-list-icon>quiz</mat-icon> All Quizzes   
         </button> -->
         <button mat-list-item  
+        [routerLink]="'/user-dashboard/query/'+r.roleId" 
         *ngFor="let r of roles">
-            <mat-icon class="icon-color"mat-list-icon>assignment</mat-icon> {{r.domain}}   
+            <mat-icon mat-list-icon>assignment</mat-icon> {{r.domain}}   
         </button>
         
     </mat-action-list>

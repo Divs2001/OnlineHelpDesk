@@ -1,0 +1,37 @@
+<mat-card>
+    <h1 style="color: rgba(0,0,0,.54); " class="ml40">Add your query</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <form (ngSubmit)="formSubmit()">
+                    <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input required [(ngModel)]="queryData.title"
+                        autofocus matInput placeholder="Enter here..." name="title" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea required [(ngModel)]="queryData.description"
+                        autofocus matInput placeholder="Enter here..." name="title" type="text" rows="10">
+                        </textarea>
+                    </mat-form-field>
+                    <div class="container text-center">
+                        <button mat-raised-button style="background-color: #FC5656; color: white;" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <mat-card class="mat-header">
+                    <mat-card-header class="">
+                        <mat-card-title><h1>{{userData.name}}</h1></mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWphyoJkSCIRkEcoJVdpJIFWNXjKP3cYwrg&usqp=CAU" alt="Incharge photo">
+                    <mat-card-content>
+                        <h1>Incharge of {{role.domain}}</h1>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    {{queryData | json}}
+</mat-card>

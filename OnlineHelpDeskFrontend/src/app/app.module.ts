@@ -30,6 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
+import { UserQueryComponent } from './pages/user/user-query/user-query.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { UserHomeComponent } from './pages/user/user-home/user-home.component';
     WelcomeComponent,
     UserSidebarComponent,
     UserHomeComponent,
+    UserQueryComponent,
     
     
   ],
