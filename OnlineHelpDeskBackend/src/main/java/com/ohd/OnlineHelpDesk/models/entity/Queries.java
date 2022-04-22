@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Query {
+public class Queries {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long queryId;
@@ -27,7 +27,12 @@ public class Query {
     @JsonIgnore
     private Role roles;
 
-    public Query(String title, String description){
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    @JsonIgnore
+    private Users users;
+
+    public Queries(String title, String description){
         this.title = title;
         this.description = description;
     }

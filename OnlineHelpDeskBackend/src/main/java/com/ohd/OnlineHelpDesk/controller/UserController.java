@@ -34,6 +34,11 @@ public class UserController {
         return this.usersService.getUser(id);
     }
 
+    @GetMapping(value="/getUserByRoleId")
+    public Users getUserByRoleId(@RequestParam Long roleId){
+        return this.usersService.getUserByRoleId(roleId);
+    }
+
     @PostMapping(value="/forgot-password")
     public String forgotPassword(@RequestBody ForgotPasswordResource email){
         System.out.println("Entered in controller");

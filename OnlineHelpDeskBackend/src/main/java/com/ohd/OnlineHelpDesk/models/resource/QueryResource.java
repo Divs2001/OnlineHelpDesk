@@ -14,4 +14,5 @@ public class QueryResource {
     private String title;
     private String description;
     private long roleId;
+    private long userId;
 }

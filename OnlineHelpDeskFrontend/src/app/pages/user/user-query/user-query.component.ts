@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomainsService } from 'src/app/services/domains/domains.service';
+import { LoginService } from 'src/app/services/login.service';
 import { QueryService } from 'src/app/services/query/query.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -17,15 +18,18 @@ export class UserQueryComponent implements OnInit {
   queryData = {
     title: '',
     description: '',
-    roleId:''
+    roleId:'',
+    userId:''
   };
-  userData: any = {
+  userData:any={};
+  adminData: any = {
 
   };
   
   constructor(private route: ActivatedRoute, private user: UserService, 
     private domain: DomainsService,
-    private query:QueryService) { }
+    private query:QueryService,
+    private login:LoginService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -33,8 +37,8 @@ export class UserQueryComponent implements OnInit {
 
       this.user.getUser(this.roleId).subscribe(
         (data) => {
-          this.userData = data
-          console.log(this.userData);
+          this.adminData = data
+          console.log(this.adminData);
         }, (error) => {
           console.log(error);
         }
@@ -57,6 +61,8 @@ export class UserQueryComponent implements OnInit {
 
   formSubmit(){
     this.queryData.roleId = this.roleId;
+    this.userData = this.login.getUser();
+    this.queryData.userId = this.userData.id;
     console.log(this.queryData);
     
     this.query.addQuery(this.queryData).subscribe(

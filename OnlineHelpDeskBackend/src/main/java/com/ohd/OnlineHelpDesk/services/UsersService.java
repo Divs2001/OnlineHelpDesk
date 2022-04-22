@@ -48,6 +48,9 @@ public class UsersService {
         return this.usersRepository.findById(id).get();
     }
 
+    public Users getUserByRoleId(Long roleId){
+        return this.usersRepository.findByRoleId(roleId);
+    }
     public String forgotPassword(String email) {
         Users users = this.usersRepository.findByEmail(email);
         if(users!=null){
