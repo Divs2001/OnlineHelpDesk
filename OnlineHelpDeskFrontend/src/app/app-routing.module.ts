@@ -4,9 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDasboardComponent } from './pages/admin/admin-dasboard/admin-dasboard.component';
 
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDasboardComponent as UserDasboardComponent } from './pages/user/user-dasboard/user-dasboard.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
@@ -67,6 +69,16 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path:'forgot-password',
+    component:ForgotPasswordComponent,
+    pathMatch:'full'
+  },
+  {
+    path: 'reset-password/:id',
+    component:ResetPasswordComponent,
+    pathMatch: 'full'
+  }
 
 ];
 

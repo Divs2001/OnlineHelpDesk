@@ -31,6 +31,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { UserHomeComponent } from './pages/user/user-home/user-home.component';
 import { UserQueryComponent } from './pages/user/user-query/user-query.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { UserQueryComponent } from './pages/user/user-query/user-query.component
     UserSidebarComponent,
     UserHomeComponent,
     UserQueryComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
     
     
   ],

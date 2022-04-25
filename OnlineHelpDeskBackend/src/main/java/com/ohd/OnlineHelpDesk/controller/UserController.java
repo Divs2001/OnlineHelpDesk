@@ -3,10 +3,13 @@ package com.ohd.OnlineHelpDesk.controller;
 import com.ohd.OnlineHelpDesk.models.entity.Role;
 import com.ohd.OnlineHelpDesk.models.entity.Users;
 import com.ohd.OnlineHelpDesk.models.resource.ForgotPasswordResource;
+import com.ohd.OnlineHelpDesk.models.resource.ResetPasswordResource;
+import com.ohd.OnlineHelpDesk.models.resource.ResetPasswordResponse;
 import com.ohd.OnlineHelpDesk.models.resource.UserResource;
 import com.ohd.OnlineHelpDesk.repo.RoleRepository;
 import com.ohd.OnlineHelpDesk.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,9 +43,15 @@ public class UserController {
     }
 
     @PostMapping(value="/forgot-password")
-    public String forgotPassword(@RequestBody ForgotPasswordResource email){
+    public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordResource email){
         System.out.println("Entered in controller");
-        return this.usersService.forgotPassword(email.getEmail());
+        return ResponseEntity.ok(this.usersService.forgotPassword(email.getEmail()));
+    }
+
+    @PutMapping(value="/reset-password")
+    public ResetPasswordResponse resetPassword(@RequestBody ResetPasswordResource rpr){
+        System.out.println("I am in.");
+        return this.usersService.resetPassword(rpr.getId(),rpr.getNew_password());
     }
 
 
