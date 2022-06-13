@@ -12,4 +12,8 @@ export class DomainsService {
   public getRoles(){
     return this.http.get(`${baseUrl}/roles/getRoles`);
   }
+
+  public getRole(roleId:any){
+    return this.http.get(`${baseUrl}/roles/getRole?roleId=`+roleId);
+  }
 }

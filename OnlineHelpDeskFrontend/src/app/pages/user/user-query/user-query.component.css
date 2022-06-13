@@ -1,0 +1,10 @@
+.w100{
+    width:100%;
+}
+.card2{
+    max-width:600px !important; 
+}
+.mat-header{
+    background-color: #333537;
+    color: white;
+}

@@ -13,15 +13,27 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Query {
+public class Queries {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long queryId;
-    private String type;
+    private String title;
+    //ACTIVE INACTIVE // by default every quiz will be active before getting resolved
+    private String type = "ACTIVE";
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="role_id")
     @JsonIgnore
     private Role roles;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    @JsonIgnore
+    private Users users;
+
+    public Queries(String title, String description){
+        this.title = title;
+        this.description = description;
+    }
 }

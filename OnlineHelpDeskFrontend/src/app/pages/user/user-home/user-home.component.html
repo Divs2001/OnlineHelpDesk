@@ -1,1 +1,86 @@
-<p>user-home works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container mt40">
+        <!-- <div class="row mt40">
+            <div class="col-md-6">
+                <mat-card class="full-width" (click)="allQueries()">
+                    <mat-card-header class="flex">
+                        <br><br><br>
+                        <h1 style="color: #387ED9;">All Queries</h1>
+                        <br><br><br>
+                    </mat-card-header>
+                    
+                    <mat-card-content>
+                        <hr style="background-color: #387ED9; height: 10px; border-radius: 10px;">
+                    </mat-card-content>
+                </mat-card>
+                
+            </div>
+            <div class="col-md-6">
+                <mat-card class="full-width">
+                    <mat-card-header class="flex">
+                        <br><br><br>
+                        <h1 style="color: #D76060;">Unresolved Queries</h1>
+                        <br><br><br>
+                    </mat-card-header>
+                    
+                    <mat-card-content>
+                        <hr style="background-color: #D76060; height: 10px; border-radius: 10px;">
+                    </mat-card-content>
+                </mat-card>
+                
+                
+            </div>
+        </div>
+        <div class="row mt40">
+            <div class="col-md-6">
+                <mat-card class="full-width">
+                    <mat-card-header class="flex">
+                        <br><br><br>
+                        <h1 style="color: #3EAD48;">Resolved Queries</h1>
+                        <br><br><br>
+                    </mat-card-header>
+                    
+                    <mat-card-content>
+                        <hr style="background-color: #3EAD48; height: 10px; border-radius: 10px;">
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-6">
+                 
+            </div>
+        </div> -->
+        <mat-card>
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allQueries(userId)"
+                        [ngClass]="{'cream' : toggle1, 'blue': !toggle1}">All Queries</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allUnresolvedQueries(userId)"
+                        [ngClass]="{'cream' : toggle2, 'red': !toggle2}">Unresolved Queries</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allResolvedQueries(userId)"
+                        [ngClass]="{'#cream' : toggle3, 'green': !toggle3}">Resolved Queries</button>
+                    </div>
+                </div>
+
+                <!-- queries -->
+                <button style="text-align: justify;" *ngFor="let q of queries; let i= index" (click)="openQuery()">
+                    <mat-card >
+                    
+                        <mat-card-header>
+                            <h2>{{i+1}}. {{q.title}}</h2>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <h3>{{q.description}}</h3>
+                        </mat-card-content>
+                    </mat-card>
+                </button>
+                
+              </div>
+        </mat-card>
+        
+    </div>
+</div>

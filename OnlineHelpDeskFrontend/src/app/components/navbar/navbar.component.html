@@ -20,11 +20,18 @@
      </a>
 
      <a 
-     *ngIf="isLoggedIn" 
+     *ngIf="isLoggedIn && type" 
      routerLink="/admin-dashboard/profile"
     mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
         {{user.username}}
          <!-- <mat-icon>login</mat-icon> -->
+     </a>
+
+     <a 
+     *ngIf="isLoggedIn && !type" 
+     routerLink="/user-dashboard/profile"
+    mat-raised-button class="example-icon login-icon" aria-label="Example icon-button with heart icon">
+        {{user.username}}
      </a>
 
      <a (click)="logout()"

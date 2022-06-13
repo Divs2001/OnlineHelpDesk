@@ -17,7 +17,12 @@ public class RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
+    //select all domains except for student one
     public Set<Role> getRoles() {
-        return new LinkedHashSet(this.roleRepository.findAll());
+        return new LinkedHashSet(this.roleRepository.findAllExceptNone());
+    }
+
+    public Role getRole(long roleId) {
+        return this.roleRepository.findById(roleId).get();
     }
 }

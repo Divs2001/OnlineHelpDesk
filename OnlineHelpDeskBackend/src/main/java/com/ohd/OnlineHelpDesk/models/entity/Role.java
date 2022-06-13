@@ -28,7 +28,7 @@ public class Role {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "roles")
     @JsonIgnore
-    private Set<Query> query = new HashSet<>();
+    private Set<Queries> query = new HashSet<>();
 
     public Role(String roleName, String domain) {
         this.roleName = roleName;

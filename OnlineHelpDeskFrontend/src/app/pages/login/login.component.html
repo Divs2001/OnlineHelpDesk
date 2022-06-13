@@ -8,7 +8,7 @@
                         <img src="../../../assets/pictures/logo.jpg" alt="Logo" style="width: 200px;">
                     </div>
                     <h1 class="text-center">Login Here!</h1>
-                    {{loginData | json}}
+                    <!-- {{loginData | json}} -->
                     <div class="container text-center full-width">
                         <form (ngSubmit)="formSubmit()">
                             <!-- Email field -->
@@ -27,7 +27,8 @@
                                     matInput placeholder="Enter here...">
                                 <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                             </mat-form-field>
-
+                            <a routerLink="/forgot-password">Forgot Password?</a>
+                            <br>
                             <button mat-raised-button class="btn-reset" type="reset">Reset</button>
                             <button mat-raised-button class="btn-submit" type="submit">Submit</button>
                         </form>

@@ -10,21 +10,37 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  isLoggedIn:any = false;
-  user:any = null;
+  isLoggedIn: any = false;
+  user: any = null;
+  userRole: any;
+  type: any;
 
   constructor(public loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.loginService.isLoggedIn();
     this.user = this.loginService.getUser();
-    this.loginService.loginStatusSubject.asObservable().subscribe(data=>{
+    // // this.userRole = this.loginService.getUserRole();
+    // console.log(this.userRole);
+    // if (this.userRole == "ADMIN") {
+    //   this.type = true;
+    // } else {
+    //   this.type = false;
+    // }
+    this.loginService.loginStatusSubject.asObservable().subscribe(data => {
       this.isLoggedIn = this.loginService.isLoggedIn();
       this.user = this.loginService.getUser();
+      this.userRole = this.loginService.getUserRole();
+      console.log(this.userRole);
+      if (this.userRole == "ADMIN") {
+        this.type = true;
+      } else {
+        this.type = false;
+      }
     })
   }
 
-  public logout(){
+  public logout() {
     this.loginService.logout();
     window.location.reload();
   }
