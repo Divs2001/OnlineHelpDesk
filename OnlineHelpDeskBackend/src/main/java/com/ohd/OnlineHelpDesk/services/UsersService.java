@@ -120,4 +120,9 @@ public class UsersService {
 
         return new ResetPasswordResponse("Password is successfully changed.");
     }
+
+    public Long getRoleId(Long userId) {
+        System.out.println(userId);
+        return this.usersRepository.getRoleId(userId);
+    }
 }

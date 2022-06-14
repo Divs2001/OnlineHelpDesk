@@ -26,4 +26,8 @@ export class UserService {
     console.log(`${baseUrl}`);
     return this.http.put(`${baseUrl}/users/reset-password`, jsonData);
   }
+
+  public getRoleId(userId:any){
+    return this.http.get(`${baseUrl}/users/getRoleId?userId=`+userId);
+  }
 }

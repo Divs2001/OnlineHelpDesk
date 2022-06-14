@@ -1,0 +1,38 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt40">
+       
+        <mat-card>
+            <div class="tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allQueriesByRole(roleId)"
+                        [ngClass]="{'cream' : toggle1, 'blue': !toggle1}">All Queries</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allUnresolvedQueriesByRole(roleId)"
+                        [ngClass]="{'cream' : toggle2, 'red': !toggle2}">Unresolved Queries</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="tablinks" (click)="allResolvedQueriesByRole(roleId)"
+                        [ngClass]="{'#cream' : toggle3, 'green': !toggle3}">Resolved Queries</button>
+                    </div>
+                </div>
+
+                <!-- queries -->
+                <button style="text-align: justify;" *ngFor="let q of queries; let i= index" (click)="openQuery()">
+                    <mat-card >
+                    
+                        <mat-card-header>
+                            <h2>{{i+1}}. {{q.title}}</h2>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <h3>{{q.description}}</h3>
+                        </mat-card-content>
+                    </mat-card>
+                </button>
+                
+              </div>
+        </mat-card>
+        
+    </div>
+</div>

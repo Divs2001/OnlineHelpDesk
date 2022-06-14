@@ -25,4 +25,18 @@ export class QueryService {
   public getResolvedQueries(userId:any){
     return this.http.get(`${baseUrl}/query/getResolvedQueries?userId=`+userId);
   }
+
+  public getResolvedQueriesByRole(roleId: any) {
+    
+    return this.http.get(`${baseUrl}/query/resolved-queries-byRole?roleId=`+roleId);
+  }
+
+  public getUnresolvedQueriesByRole(roleId: any) {
+    return this.http.get(`${baseUrl}/query/unresolved-queries-byRole?roleId=`+roleId);
+  }
+
+  public getAllQueriesByRole(roleId: any) {
+    console.log(roleId);
+    return this.http.get(`${baseUrl}/query/all-queries-byRole?roleId=`+roleId);
+  }
 }

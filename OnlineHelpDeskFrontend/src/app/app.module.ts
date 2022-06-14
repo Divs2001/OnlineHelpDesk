@@ -33,6 +33,7 @@ import { UserHomeComponent } from './pages/user/user-home/user-home.component';
 import { UserQueryComponent } from './pages/user/user-query/user-query.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     UserQueryComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    AdminHomeComponent,
     
     
   ],

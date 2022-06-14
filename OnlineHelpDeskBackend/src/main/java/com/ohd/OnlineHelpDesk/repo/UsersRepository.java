@@ -10,4 +10,7 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     @Query(value="select * from users where role_id= :roleId",nativeQuery = true)
     public Users findByRoleId(Long roleId);
+
+    @Query(value = "SELECT role_id from users where id = :userId", nativeQuery = true)
+    Long getRoleId(Long userId);
 }

@@ -54,6 +54,9 @@ public class UserController {
         return this.usersService.resetPassword(rpr.getId(),rpr.getNew_password());
     }
 
-
+    @GetMapping(value = "/getRoleId")
+    public Long getRoleId(@RequestParam Long userId){
+        return this.usersService.getRoleId(userId);
+    }
 
 }

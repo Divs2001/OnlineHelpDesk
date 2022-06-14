@@ -85,4 +85,16 @@ public class QueryService {
     public Object getResolvedQueries(long userId) {
         return new LinkedHashSet(this.queryRepository.findResolvedQueries(userId));
     }
+
+    public Object getAllQueriesByRole(long roleId) {
+        return new LinkedHashSet(this.queryRepository.getAllQueriesByRole(roleId));
+    }
+
+    public Object getUnresolvedQueriesByRole(long roleId) {
+        return new LinkedHashSet(this.queryRepository.getUnresolvedQueriesByRole(roleId));
+    }
+
+    public Object getReesolvedQueriesByRole(long roleId) {
+        return new LinkedHashSet(this.queryRepository.getResolvedQueriesByRole(roleId));
+    }
 }
