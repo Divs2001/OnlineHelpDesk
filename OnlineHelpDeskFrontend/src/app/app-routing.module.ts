@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminDasboardComponent } from './pages/admin/admin-dasboard/admin-dasboard.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -41,11 +42,11 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        component: WelcomeComponent
+        component: AdminHomeComponent
       },
       {
         path:"profile",
-        component:ProfileComponent
+        component:ProfileComponent 
       },
 
     ]
