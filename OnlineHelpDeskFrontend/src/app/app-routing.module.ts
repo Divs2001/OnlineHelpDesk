@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AdminDasboardComponent } from './pages/admin/admin-dasboard/admin-dasboard.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { AdminQueryViewComponent } from './pages/admin/admin-query-view/admin-query-view.component';
 
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -48,6 +49,10 @@ const routes: Routes = [
         path:"profile",
         component:ProfileComponent 
       },
+      {
+        path:'view-query/:queryId',
+        component: AdminQueryViewComponent
+      }
 
     ]
   },

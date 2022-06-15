@@ -11,8 +11,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QueryResource {
+    private Long queryId;
     private String title;
     private String description;
     private long roleId;
     private long userId;
+    private String response;
 }

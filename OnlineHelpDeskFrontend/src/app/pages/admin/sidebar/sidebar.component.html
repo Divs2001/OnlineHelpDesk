@@ -7,6 +7,17 @@
         <button mat-list-item routerLink="/admin-dashboard/profile">
             <mat-icon mat-list-icon>person</mat-icon> Profile   
         </button>
+        <button mat-list-item routerLink="/admin-dashboard">
+            <mat-icon mat-list-icon>assignment</mat-icon> All Queries   
+        </button>
+        <button mat-list-item routerLink="/admin-dashboard"
+        (click)="allUnresolvedQueriesByRole(roleId)"
+        [ngClass]="{'cream' : toggle2, 'red': !toggle2}">
+            <mat-icon mat-list-icon>assignment_late</mat-icon> Unresolved Queries
+        </button>
+        <button mat-list-item routerLink="/admin-dashboard">
+            <mat-icon mat-list-icon>assignment_turned_in</mat-icon> Resolved Queries   
+        </button>
         
     </mat-action-list>
 </mat-card>

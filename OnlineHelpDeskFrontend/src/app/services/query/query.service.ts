@@ -39,4 +39,13 @@ export class QueryService {
     console.log(roleId);
     return this.http.get(`${baseUrl}/query/all-queries-byRole?roleId=`+roleId);
   }
+
+  public getQuery(queryId:any){
+    console.log(queryId);
+    return this.http.get(`${baseUrl}/query/getQuery?queryId=`+queryId);
+  }
+
+  public addResponse(queryData:any){
+    return this.http.put(`${baseUrl}/query/addResponse`, queryData);
+  }
 }

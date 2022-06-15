@@ -56,4 +56,16 @@ public class QueryController {
         return ResponseEntity.ok(this.queryService.getReesolvedQueriesByRole(roleId));
     }
 
+    @GetMapping(path = "getQuery")
+    public ResponseEntity<?> getQuery(@RequestParam long queryId){
+        return ResponseEntity.ok(this.queryService.getQuery(queryId));
+    }
+
+    @PutMapping(path = "/addResponse")
+    public Queries addResponse(@RequestBody QueryResource queryData){
+        logger.info("Getting into addResponse method");
+        logger.info(queryData.getTitle()+" "+ queryData.getQueryId()+" "+ queryData.getResponse());
+        return this.queryService.addResponse(queryData);
+    }
+
 }

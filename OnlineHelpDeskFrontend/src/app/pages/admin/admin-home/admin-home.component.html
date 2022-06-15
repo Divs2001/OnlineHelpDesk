@@ -19,7 +19,8 @@
                 </div>
 
                 <!-- queries -->
-                <button style="text-align: justify;" *ngFor="let q of queries; let i= index" (click)="openQuery()">
+                <button style="text-align: justify;" *ngFor="let q of queries; let i= index" 
+                [routerLink]="'/admin-dashboard/view-query/'+q.queryId" >
                     <mat-card >
                     
                         <mat-card-header>
