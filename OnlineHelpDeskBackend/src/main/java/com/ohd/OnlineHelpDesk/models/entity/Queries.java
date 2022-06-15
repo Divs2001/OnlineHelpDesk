@@ -32,6 +32,8 @@ public class Queries {
     @JsonIgnore
     private Users users;
 
+    private String response;
+
     public Queries(String title, String description){
         this.title = title;
         this.description = description;

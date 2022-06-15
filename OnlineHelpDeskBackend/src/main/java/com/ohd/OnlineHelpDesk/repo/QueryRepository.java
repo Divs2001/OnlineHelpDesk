@@ -26,4 +26,10 @@ public interface QueryRepository extends JpaRepository<Queries, Long> {
 
     @Query(value="SELECT q from Queries q where q.type = 'INACTIVE' and q.roles.roleId = :roleId")
     Set<Queries> getResolvedQueriesByRole(long roleId);
+
+    @Query(value = "Select q from Queries q where q.queryId = :queryId")
+    Queries getQuery(long queryId);
+
+    @Query(value = "SELECT q.users.id from Queries q where q.queryId = :queryId")
+    Long getUserId(long queryId);
 }

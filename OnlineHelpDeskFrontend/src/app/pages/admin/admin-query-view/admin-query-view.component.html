@@ -1,0 +1,38 @@
+<mat-card>
+    <h1 style="color: rgba(0,0,0,.54); " class="ml40">View the query</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="w100" appearance="outline">
+                    <h1>Title</h1>
+                    <h2>{{queryData.title}}</h2>
+                </div>
+                <div class="w100" appearance="fill">
+                    <h1>Description</h1>
+                    <h2>{{queryData.description}}</h2>
+                </div>
+                <div class="w100" appearance="fill" *ngIf="queryData.type == 'INACTIVE'">
+                    <h1>Response</h1>
+                    <h2>{{queryData.response}}</h2>
+                </div>
+                <form (ngSubmit)="formSubmit()">
+                    
+                    <mat-form-field class="w100" appearance="fill" *ngIf="queryData.type == 'ACTIVE'">
+                        <mat-label>Response</mat-label>
+                        <textarea required [(ngModel)]="queryData.response"
+                        autofocus matInput placeholder="Enter here..." name="title" type="text" rows="10">
+                        </textarea>
+                    </mat-form-field>
+
+                    
+
+                    <div class="container text-center" *ngIf="queryData.type == 'ACTIVE'">
+                        <button mat-raised-button style="background-color: #FC5656; color: white;" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <!-- {{queryData | json}} -->
+</mat-card>

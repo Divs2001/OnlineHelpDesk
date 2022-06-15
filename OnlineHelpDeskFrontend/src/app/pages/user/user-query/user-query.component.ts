@@ -68,7 +68,16 @@ export class UserQueryComponent implements OnInit {
     this.query.addQuery(this.queryData).subscribe(
       (data)=>{
         console.log(data);
-        Swal.fire('Success',"Query is sent.",'success');
+        Swal.fire('Success',"Query is sent.",'success').then(
+          () =>{
+            this.queryData = {
+              title: '',
+              description: '',
+              roleId:'',
+              userId:''
+            };
+          }
+        );
       },
       (error)=>{
         console.log(error);

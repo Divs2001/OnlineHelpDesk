@@ -34,6 +34,7 @@ import { UserQueryComponent } from './pages/user/user-query/user-query.component
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { AdminQueryViewComponent } from './pages/admin/admin-query-view/admin-query-view.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.componen
     ForgotPasswordComponent,
     ResetPasswordComponent,
     AdminHomeComponent,
+    AdminQueryViewComponent,
     
     
   ],

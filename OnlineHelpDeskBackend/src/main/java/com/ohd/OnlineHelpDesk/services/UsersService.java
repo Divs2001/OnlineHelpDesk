@@ -66,12 +66,12 @@ public class UsersService {
 
             properties.put("mail.smtp.auth","true");
             properties.put("mail.smtp.starttls.enable","true");
-            properties.put("mail.smtp.host","smtp.gmail.com");
+            properties.put("mail.smtp.host","smtp-mail.outlook.com");
             properties.put("mail.smtp.port","587");
 
             String to = email;//change accordingly
-            String from = "onlinehelpdeskskit@gmail.com";//change accordingly
-            String password = "Onlinehelpdesk";
+            String from = "onlinehelpdeskskit@outlook.com";//change accordingly
+            String password = "OnlineHelpDesk";
 
             Session session = Session.getInstance(properties, new Authenticator() {
                 @Override
